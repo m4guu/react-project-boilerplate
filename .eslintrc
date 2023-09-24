@@ -17,7 +17,7 @@
     "react/display-name": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
-    "import/no-default-export": "error",
+    "import/no-default-export": "off",
     "import/order": [
       "error",
       {
