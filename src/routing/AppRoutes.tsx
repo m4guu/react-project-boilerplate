@@ -12,7 +12,7 @@ import { AppRoute } from './AppRoute.enum';
 import { PrivateRoute } from './PrivateRoute';
 
 export const AppRoutes: React.FC = () => {
-  // todo: get user from context when UserContext will be created
+  // TODO: get user from context when UserContext will be created
   const user = '';
 
   return (
