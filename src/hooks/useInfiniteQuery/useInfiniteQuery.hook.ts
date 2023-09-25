@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import {
   QueryKey,
   useInfiniteQuery as useRQInfiniteQuery,
@@ -25,6 +23,7 @@ export const useInfiniteQuery = <Key extends keyof AxiosInfiniteQueriesType, TEr
   return useRQInfiniteQuery(
     queryKey,
     async ({ pageParam }: { pageParam?: string }) => await queryFn({ pageParam, ...(args || {}) }),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     options as any,
   ) as UseInfiniteQueryResult<DataForQuery<Key>, TError>;
 };

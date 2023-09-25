@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 
 import { AppLocale } from '../../context/locale/AppLocale.enum';
 import { useLocale } from '../../hooks/useLocale/useLocale.hook';
-import { useUsers } from '../../hooks/useUsers/useUsers';
+import { useUsers } from '../../hooks/useUsers/useUsers.hook';
 import { AppMessages } from '../../i18n/messages';
 
 export const Home: React.FC = () => {
