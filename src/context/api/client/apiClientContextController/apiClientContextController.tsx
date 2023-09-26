@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import { ApiClientContextValue } from '../apiClientContext/apiClientContext.types';
-import { ApiClientContext } from '../apiClientContext/apiClientContext';
-import { ClientHttpService } from '../../../../api/axios/services/client/ClientHttpService';
+import { ClientHttpService } from 'api/axios/services/client/ClientHttpService';
+import { ApiClientContextValue } from 'context/api/client/apiClientContext/ApiClientContext.types';
+import { ApiClientContext } from 'context/api/client/apiClientContext/ApiClientContext';
 
 export const ApiClientContextController: React.FCWithChildren = ({ children }) => {
   const queryClient = useMemo(

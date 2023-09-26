@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { LocaleContextController } from '../context/locale/localeContextController/LocaleContextController';
-import { ApiClientContextController } from '../context/api/client/apiClientContextController/apiClientContextController';
+import { ApiClientContextController } from '../context/api/client/apiClientContextController/ApiClientContextController';
 import { AuthContextController } from '../context/auth/authContextController/AuthContextController';
 
 export const AppProviders: React.FCWithChildren = ({ children }) => {
