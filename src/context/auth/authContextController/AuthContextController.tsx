@@ -1,22 +1,18 @@
-import { useCallback, useMemo, useReducer } from 'react';
+import { useCallback, useEffect, useMemo, useReducer } from 'react';
 
-import { AuthContext } from '../authContext/AuthContext';
-import { authReducer } from '../authReducer/authReducer';
 import { resetTokens, setTokens } from '../authActionCreators/authActionCreators';
-import { useMutation } from '../../../hooks/useMutation/useMutation.hook';
-import { useUser } from '../../../hooks/useUser/useUser.hook';
+import { AuthContext } from '../authContext/AuthContext';
 import { AuthContextValue } from '../authContext/AuthContext.type';
-import { AuthState } from '../authReducer/authReducer.types';
-
-// TODO: change dummy initial state
-const initialState: AuthState = {
-  accessToken: null,
-  refreshToken: null,
-  expires: null,
-};
+import { authReducer } from '../authReducer/authReducer';
+import { authStorage } from '../authStorage/AuthStorage';
+import { useMutation, useUser } from 'hooks';
 
 export const AuthContextController: React.FCWithChildren = ({ children }) => {
-  const [state, dispatch] = useReducer(authReducer, initialState);
+  const [state, dispatch] = useReducer(authReducer, {
+    accessToken: authStorage.accessToken,
+    refreshToken: authStorage.refreshToken,
+    expires: authStorage.expires,
+  });
 
   const { mutateAsync: login, isLoading: isAuthenticating } = useMutation('loginMutation', {
     onSuccess: (res) => {
@@ -52,6 +48,12 @@ export const AuthContextController: React.FCWithChildren = ({ children }) => {
     resetUser(), dispatch(resetTokens());
   }, [resetUser]);
   // LOGOUT
+
+  useEffect(() => {
+    authStorage.accessToken = state.accessToken;
+    authStorage.refreshToken = state.refreshToken;
+    authStorage.expires = state.expires;
+  }, [state]);
 
   const value: AuthContextValue = useMemo(
     () => ({

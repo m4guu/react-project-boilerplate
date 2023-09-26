@@ -1,4 +1,4 @@
-import { useInfiniteQuery } from '../useInfiniteQuery/useInfiniteQuery.hook';
+import { useInfiniteQuery } from 'hooks';
 
 export const useUsers = () => {
   return useInfiniteQuery(

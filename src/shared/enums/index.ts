@@ -1,1 +1,1 @@
-export { default as ErrorID } from './ErrorID';
+export * from './ErrorID';

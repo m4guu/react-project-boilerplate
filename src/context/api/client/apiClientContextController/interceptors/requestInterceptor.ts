@@ -1,14 +1,13 @@
 import { AxiosRequestHeaders, InternalAxiosRequestConfig } from 'axios';
 
-export const requestSuccessInterceptor = (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
-  // TODO: replace with real accessToken when will be created
-  const accessToken = '';
+import { authStorage } from '../../../../auth/authStorage/AuthStorage';
 
-  if (accessToken) {
+export const requestSuccessInterceptor = (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
+  if (authStorage.accessToken) {
     return {
       ...config,
       withCredentials: true,
-      headers: { ...config.headers, Authorization: `Bearer ${accessToken}` } as AxiosRequestHeaders,
+      headers: { ...config.headers, Authorization: `Bearer ${authStorage.accessToken}` } as AxiosRequestHeaders,
     };
   }
   return config;

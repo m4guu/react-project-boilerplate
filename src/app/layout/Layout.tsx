@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 
-import { AppRoute } from '../../routing/AppRoute.enum';
+import { AppRoute } from '../../routes/AppRoute.enum';
 
 export const Layout: React.FC = () => {
   return (

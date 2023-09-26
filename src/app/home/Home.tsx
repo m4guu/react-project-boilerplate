@@ -1,12 +1,12 @@
 import { Fragment } from 'react';
 
 import { AppLocale } from '../../context/locale/AppLocale.enum';
-import { useLocale } from '../../hooks/useLocale/useLocale.hook';
-import { useUsers } from '../../hooks/useUsers/useUsers.hook';
+import { useAuth, useLocale, useUsers } from 'hooks';
 import { AppMessages } from '../../i18n/messages';
 
 export const Home: React.FC = () => {
   const { formatMessage, locale, setLocale } = useLocale();
+  const { login } = useAuth();
 
   const {
     data: usersResponse,
@@ -36,6 +36,11 @@ export const Home: React.FC = () => {
           <button disabled={isFetchingNextPage || isFetchingUsers || !hasMoreUsers} onClick={() => loadMoreUsers()}>
             Load more
           </button>
+        </div>
+
+        <div>
+          <p>Users Auth</p>
+          <button onClick={() => login({ username: 'username', password: 'password' })}>Click to login</button>
         </div>
       </div>
     </>
