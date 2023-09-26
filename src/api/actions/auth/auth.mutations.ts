@@ -1,4 +1,4 @@
-import { ClientService } from '../../../shared/types';
+import { ClientService } from 'shared/types';
 
 import {
   LoginMutationArguments,

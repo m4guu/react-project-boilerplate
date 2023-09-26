@@ -7,13 +7,13 @@ import { User } from '../app/user/User';
 import { UsersList } from '../app/usersList/UsersList';
 import { Login } from '../app/login/Login';
 import { Layout } from '../app/layout/Layout';
+import { useAuth } from 'hooks';
 
 import { AppRoute } from './AppRoute.enum';
 import { PrivateRoute } from './PrivateRoute';
 
 export const AppRoutes: React.FC = () => {
-  // TODO: get user from context when UserContext will be created
-  const user = '';
+  const { user } = useAuth();
 
   return (
     <Routes>

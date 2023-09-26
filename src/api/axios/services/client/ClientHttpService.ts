@@ -2,7 +2,7 @@
 import { AxiosError } from 'axios';
 
 import { axiosClientInstance as client } from '../../axios';
-import { ClientService, Error } from '../../../../shared/types';
+import { ClientService, Error } from 'shared/types';
 
 import { undefinedError } from './constans';
 

@@ -2,17 +2,16 @@ import { QueryKey, UseQueryOptions, UseQueryResult, useQuery as useRQQuery } fro
 
 import { AxiosQueriesType, queries } from '../../api/actions';
 import { DataForQuery, GetQueryParams } from '../../api/types/types';
-import { Error } from '../../shared/types';
-import { useSafeContext } from '../useSafeContext/useSafeContext.hook';
-import { ApiClientContext } from '../../context/api/client/apiClientContext/apiClientContext';
 import { parseQueryKey } from '../../utils/parseQueryKey';
+import { useApiClient } from 'hooks';
+import { Error } from 'shared/types';
 
 export const useQuery = <Key extends keyof AxiosQueriesType, TError = Error>(
   query: Key,
   args: GetQueryParams<Key>,
   options?: UseQueryOptions<DataForQuery<Key>, TError>,
 ) => {
-  const { service } = useSafeContext(ApiClientContext);
+  const { service } = useApiClient();
   const queryFn = queries[query](service);
   const queryKey: QueryKey = parseQueryKey(query, args);
 

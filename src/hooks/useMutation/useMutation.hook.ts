@@ -6,9 +6,8 @@ import {
 } from '@tanstack/react-query';
 
 import { AxiosMutationsType, mutations } from 'api/actions';
-import { useSafeContext } from '../useSafeContext/useSafeContext.hook';
-import { ApiClientContext } from '../../context/api/client/apiClientContext/apiClientContext';
-import { Error } from '../../shared/types';
+import { Error } from 'shared/types';
+import { useApiClient } from 'hooks';
 
 import { DataForMutation, GetMutationParams } from './useMutation.types';
 
@@ -16,7 +15,7 @@ export const useMutation = <Key extends keyof AxiosMutationsType, TError = Error
   mutation: Key,
   options?: UseMutationOptions<DataForMutation<Key>, TError>,
 ) => {
-  const { service } = useSafeContext(ApiClientContext);
+  const { service } = useApiClient();
   const mutationFn = mutations[mutation](service);
   const mutationKey: MutationKey = [mutation];
 

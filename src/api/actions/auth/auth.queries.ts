@@ -1,6 +1,6 @@
 import { stringify } from 'qs';
 
-import { ClientService } from '../../../shared/types';
+import { ClientService } from 'shared/types';
 
 import {
   GetMeQueryResponse,
