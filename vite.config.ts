@@ -8,4 +8,11 @@ export default defineConfig({
   plugins: [react(), viteTsconfigPaths(), svgrPlugin()],
   server: { open: true, port: 3000 },
   build: { outDir: 'build' },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: 'src/config/tests/setup.ts',
+    include: ['**/__tests__/**/*.test.[jt]s?(x)', '**/?(*.){test,spec}.[jt]s?(x)'],
+    css: true,
+  },
 });
