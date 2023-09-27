@@ -1,11 +1,12 @@
 import { Link, Outlet } from 'react-router-dom';
+import { Typography } from '@mui/material';
 
 import { AppRoute } from '../../routes/AppRoute.enum';
 
 export const Layout: React.FC = () => {
   return (
     <>
-      <header>REACT PROJECT TEMPLATE</header>
+      <Typography variant="p">REACT PROJECT TEMPLATE</Typography>
       <nav>
         <ul>
           <li>

@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { Box, Typography } from '@mui/material';
 
 import { AppLocale } from '../../context/locale/AppLocale.enum';
 import { useAuth, useLocale, useTheme, useUsers } from 'hooks';
@@ -24,7 +25,6 @@ export const Home: React.FC = () => {
       <h2>home</h2>
       <p>{formatMessage({ id: AppMessages['home.helloWorld'] })}</p>
       <button onClick={() => setLocale(locale === AppLocale.pl ? AppLocale.en : AppLocale.pl)}>change language</button>
-
       <div>
         <p>List of users &#129489;</p>
         <div style={{ marginBottom: '2rem' }}>
@@ -51,6 +51,11 @@ export const Home: React.FC = () => {
           <button onClick={() => setTheme(ThemeMode.dark)}>dark mode</button>
           <button onClick={() => setTheme(ThemeMode.light)}>light mode</button>
         </div>
+
+        <Box>
+          <Typography variant="h2">KRYSTIAN SOFTWARE HOUSE</Typography>
+          <Typography variant="p">Edit layout</Typography>
+        </Box>
       </div>
     </>
   );
