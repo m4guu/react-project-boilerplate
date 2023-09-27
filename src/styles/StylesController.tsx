@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { createTheme, ThemeProvider, CssBaseline, StyledEngineProvider, ThemeOptions } from '@mui/material';
 
 import { palette } from 'styles/palette/palette';
+import { typography } from 'styles/typography/typography';
 import { useTheme } from 'hooks';
 import { ThemeMode } from 'shared/enums';
 
@@ -14,6 +15,7 @@ export const StylesController: React.FCWithChildren = ({ children }) => {
         themeMode === ThemeMode.light
           ? { ...palette.light, mode: ThemeMode.light }
           : { ...palette.dark, mode: ThemeMode.dark },
+      typography,
     }),
     [themeMode],
   );
