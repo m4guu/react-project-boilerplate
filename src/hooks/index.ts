@@ -9,4 +9,5 @@ export * from './useUser/useUser.hook';
 export * from './useUsers/useUsers.hook';
 export * from './useTheme/useTheme.hook';
 export * from './useLocalStorage/useLocalStorage.hook';
+export * from './useTheme/useTheme.hook';
 // HOOKS_REEXPORTS
