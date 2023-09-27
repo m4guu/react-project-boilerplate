@@ -1,11 +1,13 @@
 import { Fragment } from 'react';
 
 import { AppLocale } from '../../context/locale/AppLocale.enum';
-import { useAuth, useLocale, useUsers } from 'hooks';
+import { useAuth, useLocale, useTheme, useUsers } from 'hooks';
 import { AppMessages } from '../../i18n/messages';
+import { ThemeMode } from 'shared/enums';
 
 export const Home: React.FC = () => {
   const { formatMessage, locale, setLocale } = useLocale();
+  const { theme, setTheme } = useTheme();
   const { login } = useAuth();
 
   const {
@@ -41,6 +43,13 @@ export const Home: React.FC = () => {
         <div>
           <p>Users Auth</p>
           <button onClick={() => login({ username: 'username', password: 'password' })}>Click to login</button>
+        </div>
+
+        <div>
+          <p>Theme Mode</p>
+          <p>Actual: {theme}</p>
+          <button onClick={() => setTheme(ThemeMode.dark)}>dark mode</button>
+          <button onClick={() => setTheme(ThemeMode.light)}>light mode</button>
         </div>
       </div>
     </>

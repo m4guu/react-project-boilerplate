@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import { LocaleContextController } from '../context/locale/localeContextController/LocaleContextController';
-import { ApiClientContextController } from '../context/api/client/apiClientContextController/ApiClientContextController';
-import { AuthContextController } from '../context/auth/authContextController/AuthContextController';
+import { AuthContextController } from 'context/auth/authContextController/AuthContextController';
+import { ApiClientContextController } from 'context/api/client/apiClientContextController/ApiClientContextController';
+import { LocaleContextController } from 'context/locale/localeContextController/LocaleContextController';
 
 export const AppProviders: React.FCWithChildren = ({ children }) => {
   return (
