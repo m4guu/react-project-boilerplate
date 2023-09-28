@@ -5,6 +5,7 @@ import { AppLocale } from '../../context/locale/AppLocale.enum';
 import { useAuth, useLocale, useTheme, useUsers } from 'hooks';
 import { AppMessages } from '../../i18n/messages';
 import { ThemeMode } from 'shared/enums';
+import { SectionContainer } from 'components';
 
 export const Home: React.FC = () => {
   const { formatMessage, locale, setLocale } = useLocale();
@@ -21,7 +22,7 @@ export const Home: React.FC = () => {
   } = useUsers();
 
   return (
-    <>
+    <SectionContainer>
       <h2>home</h2>
       <p>{formatMessage({ id: AppMessages['home.helloWorld'] })}</p>
       <button onClick={() => setLocale(locale === AppLocale.pl ? AppLocale.en : AppLocale.pl)}>change language</button>
@@ -57,6 +58,6 @@ export const Home: React.FC = () => {
           <Typography variant="p">Edit layout</Typography>
         </Box>
       </div>
-    </>
+    </SectionContainer>
   );
 };
