@@ -2,6 +2,8 @@ import { Link, Outlet } from 'react-router-dom';
 import { Typography } from '@mui/material';
 
 import { AppRoute } from '../../routes/AppRoute.enum';
+import KshLightLogo from 'assets/images/ksh-logo-light.svg';
+import KshLightLogo2 from 'assets/images/ksh-logo-light-2.svg';
 
 export const Layout: React.FC = () => {
   return (
@@ -25,6 +27,8 @@ export const Layout: React.FC = () => {
       </nav>
       <main>
         <Outlet />
+        <img src={KshLightLogo} alt="logo" />
+        <img src={KshLightLogo2} alt="logo" />
       </main>
     </>
   );
